@@ -24,7 +24,11 @@ class Checker:
         error = data.get("error_code")
         if error:
             text = data.get("error_text")
-            raise Error(text, error)
+            if text:
+                raise Error(text, error)
+            else:
+                text = data.get("text")
+                raise Error(text, error)
         
 
    

@@ -61,7 +61,7 @@
             reciever="карта/номер получателя",
             method=Method.card # Методы оплаты
         )
-        payout = await pay.create_payout()
+        payout = await pay.payment()
         print(payout)
 
     if __name__ == "__main__":
@@ -80,7 +80,7 @@
             API_ID=1111, # ID вашего ключа
             API_KEY="xxxxxxxxxxxxxxxxxx", # Сам ваш ключ
         )
-        payout = await pay.get_payout()
+        payout = await pay.get.payout()
         print(payout)
 
     if __name__ == "__main__":
@@ -99,7 +99,7 @@
             API_KEY="xxxxxxxxxxxxxxxxxx", # Сам ваш ключ
             shop=2222
         )
-        trans = await quick.get_transaction()
+        trans = await quick.get.()
         print(trans)
 
     if __name__ == "__main__":
