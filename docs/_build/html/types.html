@@ -1,0 +1,588 @@
+<!doctype html>
+<html class="no-js" lang="ru" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="prev" title="Платежи" href="quick.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+        <title>Типы оплаты, комиссии и т.д. - документация aiopayAPI 0.1.3.7</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">документация aiopayAPI 0.1.3.7</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">документация aiopayAPI 0.1.3.7</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Поиск" name="q" aria-label="Поиск">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Содержание</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Примеры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payok.html">Основной класс для работы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick.html">Платежи</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Типы оплаты, комиссии и т.д.</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="id1">
+<h1>Типы оплаты, комиссии и т.д.<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>В данном модуле есть все возможные методы оплаты</p>
+<dl class="py class" id="module-aiopayAPI.types.methods">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiopayAPI.types.methods.</span></span><span class="sig-name descname"><span class="pre">Method</span></span><a class="headerlink" href="#aiopayAPI.types.methods.Method" title="Link to this definition">#</a></dt>
+<dd><p>Методы оплаты (нужны для совершения оплаты)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.card">
+<span class="sig-name descname"><span class="pre">card</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'card'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.card" title="Link to this definition">#</a></dt>
+<dd><p>Банковская карта</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.card_uah">
+<span class="sig-name descname"><span class="pre">card_uah</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'card_uah'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.card_uah" title="Link to this definition">#</a></dt>
+<dd><p>Украиснкая карта</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.card_foreign">
+<span class="sig-name descname"><span class="pre">card_foreign</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'card_foreign'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.card_foreign" title="Link to this definition">#</a></dt>
+<dd><p>Зарубежная карта</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.tinkoff">
+<span class="sig-name descname"><span class="pre">tinkoff</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tinkoff'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.tinkoff" title="Link to this definition">#</a></dt>
+<dd><p>Оплата по Тинькофф</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.sbp">
+<span class="sig-name descname"><span class="pre">sbp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sbp'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.sbp" title="Link to this definition">#</a></dt>
+<dd><p>Оплата по СБП</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.qiwi">
+<span class="sig-name descname"><span class="pre">qiwi</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'qiwi'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.qiwi" title="Link to this definition">#</a></dt>
+<dd><p>Оплата по Qiwi</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.yoomoney">
+<span class="sig-name descname"><span class="pre">yoomoney</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'yoomoney'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.yoomoney" title="Link to this definition">#</a></dt>
+<dd><p>Оплата по ЮМани</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.payeer">
+<span class="sig-name descname"><span class="pre">payeer</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'payeer'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.payeer" title="Link to this definition">#</a></dt>
+<dd><p>Оплата Payeer</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.advcash">
+<span class="sig-name descname"><span class="pre">advcash</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'advcash'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.advcash" title="Link to this definition">#</a></dt>
+<dd><p>Оплата по Advcash</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.perfect_money">
+<span class="sig-name descname"><span class="pre">perfect_money</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'perfect_money'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.perfect_money" title="Link to this definition">#</a></dt>
+<dd><p>Оплата по Perfect Money</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.webmoney">
+<span class="sig-name descname"><span class="pre">webmoney</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'webmoney'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.webmoney" title="Link to this definition">#</a></dt>
+<dd><p>Оплата по Webmoney</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.bitcoin">
+<span class="sig-name descname"><span class="pre">bitcoin</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bitcoin'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.bitcoin" title="Link to this definition">#</a></dt>
+<dd><p>Оплата Bitcoin</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.litecoin">
+<span class="sig-name descname"><span class="pre">litecoin</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'litecoin'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.litecoin" title="Link to this definition">#</a></dt>
+<dd><p>Оплата Litecoin</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.tether">
+<span class="sig-name descname"><span class="pre">tether</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tether'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.tether" title="Link to this definition">#</a></dt>
+<dd><p>Оплата Tether USDT</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.tron">
+<span class="sig-name descname"><span class="pre">tron</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tron'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.tron" title="Link to this definition">#</a></dt>
+<dd><p>Оплата Tron</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.dogecoin">
+<span class="sig-name descname"><span class="pre">dogecoin</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dogecoin'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.dogecoin" title="Link to this definition">#</a></dt>
+<dd><p>Оплата Dogecoin</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.ethereum">
+<span class="sig-name descname"><span class="pre">ethereum</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ethereum'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.ethereum" title="Link to this definition">#</a></dt>
+<dd><p>Оплата Ethereum</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.Method.ripple">
+<span class="sig-name descname"><span class="pre">ripple</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ripple'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.Method.ripple" title="Link to this definition">#</a></dt>
+<dd><p>Оплата ripple</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiopayAPI.types.methods.</span></span><span class="sig-name descname"><span class="pre">PayMethod</span></span><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod" title="Link to this definition">#</a></dt>
+<dd><p>Все доступные платежные методы (нужны при генерации ссылки для оплаты)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.bank">
+<span class="sig-name descname"><span class="pre">bank</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cd'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.bank" title="Link to this definition">#</a></dt>
+<dd><p>Любой активный Банковский метод (cpa, cp2, cwo, cru)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.payok_card">
+<span class="sig-name descname"><span class="pre">payok_card</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cpa'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.payok_card" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты Payok</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.p2p">
+<span class="sig-name descname"><span class="pre">p2p</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cp2'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.p2p" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты P2P</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.world">
+<span class="sig-name descname"><span class="pre">world</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cwo'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.world" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты Весь мир</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.form">
+<span class="sig-name descname"><span class="pre">form</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cru'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.form" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты Форма</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.form2">
+<span class="sig-name descname"><span class="pre">form2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cwo</span> <span class="pre">+</span> <span class="pre">currency=RUB'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.form2" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты Форма #2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.uah">
+<span class="sig-name descname"><span class="pre">uah</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cwo</span> <span class="pre">+</span> <span class="pre">currency=UAH'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.uah" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты Форма UAH</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.usd">
+<span class="sig-name descname"><span class="pre">usd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cwo</span> <span class="pre">+</span> <span class="pre">currency=USD'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.usd" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты Форма USD</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.eur">
+<span class="sig-name descname"><span class="pre">eur</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cwo</span> <span class="pre">+</span> <span class="pre">currency=EUR'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.eur" title="Link to this definition">#</a></dt>
+<dd><p>Банк. Карты Форма EUR</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.sbp">
+<span class="sig-name descname"><span class="pre">sbp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sbp'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.sbp" title="Link to this definition">#</a></dt>
+<dd><p>СБП</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.qiwi">
+<span class="sig-name descname"><span class="pre">qiwi</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'qw'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.qiwi" title="Link to this definition">#</a></dt>
+<dd><p>Qiwi</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.yoomoney">
+<span class="sig-name descname"><span class="pre">yoomoney</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'yo'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.yoomoney" title="Link to this definition">#</a></dt>
+<dd><p>Yoomoney</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.perfect_money">
+<span class="sig-name descname"><span class="pre">perfect_money</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pm'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.perfect_money" title="Link to this definition">#</a></dt>
+<dd><p>Perfect Money</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.perfect_money_USD">
+<span class="sig-name descname"><span class="pre">perfect_money_USD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pm</span> <span class="pre">+</span> <span class="pre">currency=USD'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.perfect_money_USD" title="Link to this definition">#</a></dt>
+<dd><p>Perfect Money USD</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.perfect_money_EUR">
+<span class="sig-name descname"><span class="pre">perfect_money_EUR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pm</span> <span class="pre">+</span> <span class="pre">currency=EUR'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.perfect_money_EUR" title="Link to this definition">#</a></dt>
+<dd><p>Perfect Money EUR</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.megafon">
+<span class="sig-name descname"><span class="pre">megafon</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mg'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.megafon" title="Link to this definition">#</a></dt>
+<dd><p>Мегафон</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.beline">
+<span class="sig-name descname"><span class="pre">beline</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bl'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.beline" title="Link to this definition">#</a></dt>
+<dd><p>Билайн</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.bitcoin">
+<span class="sig-name descname"><span class="pre">bitcoin</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bt'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.bitcoin" title="Link to this definition">#</a></dt>
+<dd><p>Bitcoin</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.tether_TRC">
+<span class="sig-name descname"><span class="pre">tether_TRC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tt'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.tether_TRC" title="Link to this definition">#</a></dt>
+<dd><p>Tether TRC</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.tether_ERC">
+<span class="sig-name descname"><span class="pre">tether_ERC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'te'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.tether_ERC" title="Link to this definition">#</a></dt>
+<dd><p>Tether ERC</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.litecoin">
+<span class="sig-name descname"><span class="pre">litecoin</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lt'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.litecoin" title="Link to this definition">#</a></dt>
+<dd><p>Litecoin</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.dogecoin">
+<span class="sig-name descname"><span class="pre">dogecoin</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dc'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.dogecoin" title="Link to this definition">#</a></dt>
+<dd><p>Dogecoin</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.ethereum">
+<span class="sig-name descname"><span class="pre">ethereum</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'et'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.ethereum" title="Link to this definition">#</a></dt>
+<dd><p>Ethereum</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.tron">
+<span class="sig-name descname"><span class="pre">tron</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tx'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.tron" title="Link to this definition">#</a></dt>
+<dd><p>Tron</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.types.methods.PayMethod.ripple">
+<span class="sig-name descname"><span class="pre">ripple</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rp'</span></em><a class="headerlink" href="#aiopayAPI.types.methods.PayMethod.ripple" title="Link to this definition">#</a></dt>
+<dd><p>Ripple</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="quick.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Платежи</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, xllebb
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Типы оплаты, комиссии и т.д.</a><ul>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method"><code class="docutils literal notranslate"><span class="pre">Method</span></code></a><ul>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.card"><code class="docutils literal notranslate"><span class="pre">Method.card</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.card_uah"><code class="docutils literal notranslate"><span class="pre">Method.card_uah</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.card_foreign"><code class="docutils literal notranslate"><span class="pre">Method.card_foreign</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.tinkoff"><code class="docutils literal notranslate"><span class="pre">Method.tinkoff</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.sbp"><code class="docutils literal notranslate"><span class="pre">Method.sbp</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.qiwi"><code class="docutils literal notranslate"><span class="pre">Method.qiwi</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.yoomoney"><code class="docutils literal notranslate"><span class="pre">Method.yoomoney</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.payeer"><code class="docutils literal notranslate"><span class="pre">Method.payeer</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.advcash"><code class="docutils literal notranslate"><span class="pre">Method.advcash</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.perfect_money"><code class="docutils literal notranslate"><span class="pre">Method.perfect_money</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.webmoney"><code class="docutils literal notranslate"><span class="pre">Method.webmoney</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.bitcoin"><code class="docutils literal notranslate"><span class="pre">Method.bitcoin</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.litecoin"><code class="docutils literal notranslate"><span class="pre">Method.litecoin</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.tether"><code class="docutils literal notranslate"><span class="pre">Method.tether</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.tron"><code class="docutils literal notranslate"><span class="pre">Method.tron</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.dogecoin"><code class="docutils literal notranslate"><span class="pre">Method.dogecoin</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.ethereum"><code class="docutils literal notranslate"><span class="pre">Method.ethereum</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.Method.ripple"><code class="docutils literal notranslate"><span class="pre">Method.ripple</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod"><code class="docutils literal notranslate"><span class="pre">PayMethod</span></code></a><ul>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.bank"><code class="docutils literal notranslate"><span class="pre">PayMethod.bank</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.payok_card"><code class="docutils literal notranslate"><span class="pre">PayMethod.payok_card</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.p2p"><code class="docutils literal notranslate"><span class="pre">PayMethod.p2p</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.world"><code class="docutils literal notranslate"><span class="pre">PayMethod.world</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.form"><code class="docutils literal notranslate"><span class="pre">PayMethod.form</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.form2"><code class="docutils literal notranslate"><span class="pre">PayMethod.form2</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.uah"><code class="docutils literal notranslate"><span class="pre">PayMethod.uah</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.usd"><code class="docutils literal notranslate"><span class="pre">PayMethod.usd</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.eur"><code class="docutils literal notranslate"><span class="pre">PayMethod.eur</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.sbp"><code class="docutils literal notranslate"><span class="pre">PayMethod.sbp</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.qiwi"><code class="docutils literal notranslate"><span class="pre">PayMethod.qiwi</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.yoomoney"><code class="docutils literal notranslate"><span class="pre">PayMethod.yoomoney</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.perfect_money"><code class="docutils literal notranslate"><span class="pre">PayMethod.perfect_money</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.perfect_money_USD"><code class="docutils literal notranslate"><span class="pre">PayMethod.perfect_money_USD</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.perfect_money_EUR"><code class="docutils literal notranslate"><span class="pre">PayMethod.perfect_money_EUR</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.megafon"><code class="docutils literal notranslate"><span class="pre">PayMethod.megafon</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.beline"><code class="docutils literal notranslate"><span class="pre">PayMethod.beline</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.bitcoin"><code class="docutils literal notranslate"><span class="pre">PayMethod.bitcoin</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.tether_TRC"><code class="docutils literal notranslate"><span class="pre">PayMethod.tether_TRC</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.tether_ERC"><code class="docutils literal notranslate"><span class="pre">PayMethod.tether_ERC</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.litecoin"><code class="docutils literal notranslate"><span class="pre">PayMethod.litecoin</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.dogecoin"><code class="docutils literal notranslate"><span class="pre">PayMethod.dogecoin</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.ethereum"><code class="docutils literal notranslate"><span class="pre">PayMethod.ethereum</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.tron"><code class="docutils literal notranslate"><span class="pre">PayMethod.tron</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.types.methods.PayMethod.ripple"><code class="docutils literal notranslate"><span class="pre">PayMethod.ripple</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=f07dd6e1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    </body>
+</html>
