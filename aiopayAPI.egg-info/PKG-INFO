@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: aiopayAPI
-Version: 0.1.4
+Version: 0.1.4.1
 Summary: Асинхронный API для работы с платежной системой Payok.io.
 Home-page: https://github.com/xllebbSQ/aiopayAPI
 Author: xllebb

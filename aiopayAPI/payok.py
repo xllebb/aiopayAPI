@@ -191,7 +191,7 @@ class PayOk:
 
         :return: :obj:`dict` с данными 
         """
-        Checker(amount=self.amount, method=self.method, reciever=self.receiver, commission=self.commission).check_params()
+        Checker().check_params(amount=self.amount, method=self.method, reciever=self.receiver, commission=self.commission)
         data = {
             "API_ID": self.id,
             "API_KEY": self.key,
