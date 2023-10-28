@@ -17,7 +17,8 @@ setup(
   packages=find_packages(),
   install_requires=['aiohttp>=3.8.5',
                     "asyncio>=3.4.3",
-                    "typing>=3.7.4",],
+                    "typing>=3.7.4",
+                    "pydantic>=1.8.2"],
   classifiers=[
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
