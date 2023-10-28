@@ -199,6 +199,148 @@
           <section id="id1">
 <h1>Основной класс для работы<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <dl class="py class" id="module-aiopayAPI.payok">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiopayAPI.payok.</span></span><span class="sig-name descname"><span class="pre">PayOk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_ID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">API_KEY</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payout_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#aiopayAPI.types.methods.Method" title="aiopayAPI.types.methods.Method"><span class="pre">Method</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_bank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commission_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'balance'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processing_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiopayAPI.payok.PayOk" title="Link to this definition">#</a></dt>
+<dd><p>Класс для работы с сайтом PayOk</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>API_ID</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – ID ключа</p></li>
+<li><p><strong>API_KEY</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – API Ключ</p></li>
+<li><p><strong>shop</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – ID магазина</p></li>
+<li><p><strong>payment</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – ID платежа в вашей системе</p></li>
+<li><p><strong>payout_id</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – ID выплаты в системе Payok</p></li>
+<li><p><strong>offset</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – Отступ, пропуск указанного количества строк</p></li>
+<li><p><strong>amount</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code>) – Сумма выплаты</p></li>
+<li><p><strong>method</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Method</span></code>) – Специальное значение метода выплаты, (default=Method.card)</p></li>
+<li><p><strong>receiver</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Реквизиты получателя выплаты</p></li>
+<li><p><strong>sbp_bank</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Банк для выплаты по СБП</p></li>
+<li><p><strong>commission_type</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Тип расчета комиссии (Commission.balance | Commission.payment)</p></li>
+<li><p><strong>url</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – URL для отправки Webhook при смене статуса выплаты</p></li>
+<li><p><strong>json_file</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – JSON файл для записи ответов</p></li>
+<li><p><strong>processing_error</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>) – Обработка ошибок (boolean, default=False)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.id" title="Link to this definition">#</a></dt>
+<dd><p>ID вашего ключа API</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.key" title="Link to this definition">#</a></dt>
+<dd><p>Ваш ключ API</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.shop">
+<span class="sig-name descname"><span class="pre">shop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.shop" title="Link to this definition">#</a></dt>
+<dd><p>ID магазина</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.amount">
+<span class="sig-name descname"><span class="pre">amount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.amount" title="Link to this definition">#</a></dt>
+<dd><p>Сумма выплаты</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.receiver">
+<span class="sig-name descname"><span class="pre">receiver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.receiver" title="Link to this definition">#</a></dt>
+<dd><p>Реквизиты получателя выплаты</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.sbp">
+<span class="sig-name descname"><span class="pre">sbp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.sbp" title="Link to this definition">#</a></dt>
+<dd><p>Банк для выплаты по СБП</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.commission">
+<span class="sig-name descname"><span class="pre">commission</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.commission" title="Link to this definition">#</a></dt>
+<dd><p>Тип расчета комиссии (Commission.balance | Commission.payment)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.url">
+<span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.url" title="Link to this definition">#</a></dt>
+<dd><p>URL для отправки Webhook при смене статуса выплаты</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.payout_id">
+<span class="sig-name descname"><span class="pre">payout_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.payout_id" title="Link to this definition">#</a></dt>
+<dd><p>ID выплаты в системе Payok</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.offset">
+<span class="sig-name descname"><span class="pre">offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.offset" title="Link to this definition">#</a></dt>
+<dd><p>Отступ, пропуск указанного количества строк</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.method">
+<span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.method" title="Link to this definition">#</a></dt>
+<dd><p>Специальное значение метода выплаты, (default=Method.card)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.payment_id">
+<span class="sig-name descname"><span class="pre">payment_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.payment_id" title="Link to this definition">#</a></dt>
+<dd><p>ID платежа в вашей системе</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.json">
+<span class="sig-name descname"><span class="pre">json</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.json" title="Link to this definition">#</a></dt>
+<dd><p>JSON файл для записи ответов</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.error">
+<span class="sig-name descname"><span class="pre">error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.error" title="Link to this definition">#</a></dt>
+<dd><p>Обработка ошибок</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.get">
+<span class="sig-name descname"><span class="pre">get</span></span><a class="headerlink" href="#aiopayAPI.payok.PayOk.get" title="Link to this definition">#</a></dt>
+<dd><p>Функция для получения возможных данных (баланс, выплаты)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.payment">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">payment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#aiopayAPI.payok.PayOk.payment" title="Link to this definition">#</a></dt>
+<dd><p>Создание выплат (перевод)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>API_ID</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, обязательно) – ID вашего ключа API</p></li>
+<li><p><strong>API_KEY</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, обязательно) – Ваш ключ API</p></li>
+<li><p><strong>shop</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, обязательно) – ID магазина</p></li>
+<li><p><strong>amount</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code>, обязательно) – Сумма выплаты</p></li>
+<li><p><strong>method</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Method</span></code>, обязательно) – Специальное значение метода выплаты, (default=Method.card)</p></li>
+<li><p><strong>reciever</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, обязательно) – Реквизиты получателя выплаты</p></li>
+<li><p><strong>sbp_bank</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – Банк для выплаты по СБП</p></li>
+<li><p><strong>commission_type</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – Тип расчета комиссии (Commission.balance | Commission.payment)</p></li>
+<li><p><strong>url</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – URL для отправки Webhook при смене статуса выплаты</p></li>
+<li><p><strong>json_file</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – JSON файл для записи ответов</p></li>
+<li><p><strong>processing_error</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, опционально) – Обработка ошибок (boolean, default=False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> с данными</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="aiopayAPI.payok.GetAll">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiopayAPI.payok.</span></span><span class="sig-name descname"><span class="pre">GetAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payok</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#aiopayAPI.payok.PayOk" title="aiopayAPI.payok.PayOk"><span class="pre">PayOk</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiopayAPI.payok.GetAll" title="Link to this definition">#</a></dt>
 <dd><p>Класс для получения данных</p>
@@ -237,148 +379,6 @@
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> объект с данными выплат</p>
 </dd>
 </dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiopayAPI.payok.</span></span><span class="sig-name descname"><span class="pre">PayOk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_ID</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">API_KEY</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payout_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="types.html#aiopayAPI.types.methods.Method" title="aiopayAPI.types.methods.Method"><span class="pre">Method</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_bank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commission_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'balance'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processing_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiopayAPI.payok.PayOk" title="Link to this definition">#</a></dt>
-<dd><p>Класс для работы с сайтом PayOk</p>
-<dl class="field-list simple">
-<dt class="field-odd">Параметры<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>API_ID</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – ID ключа</p></li>
-<li><p><strong>API_KEY</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – API Ключ</p></li>
-<li><p><strong>shop</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – ID магазина</p></li>
-<li><p><strong>payment</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – ID платежа в вашей системе</p></li>
-<li><p><strong>payout_id</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – ID выплаты в системе Payok</p></li>
-<li><p><strong>offset</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>) – Отступ, пропуск указанного количества строк</p></li>
-<li><p><strong>amount</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code>) – Сумма выплаты</p></li>
-<li><p><strong>method</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Method</span></code>) – Специальное значение метода выплаты, (default=Method.card)</p></li>
-<li><p><strong>receiver</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Реквизиты получателя выплаты</p></li>
-<li><p><strong>sbp_bank</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Банк для выплаты по СБП</p></li>
-<li><p><strong>commission_type</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – Тип расчета комиссии (Commission.balance | Commission.payment)</p></li>
-<li><p><strong>url</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – URL для отправки Webhook при смене статуса выплаты</p></li>
-<li><p><strong>json_file</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>) – JSON файл для записи ответов</p></li>
-<li><p><strong>processing_error</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>) – Обработка ошибок (boolean, default=False)</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.amount">
-<span class="sig-name descname"><span class="pre">amount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.amount" title="Link to this definition">#</a></dt>
-<dd><p>Сумма выплаты</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.commission">
-<span class="sig-name descname"><span class="pre">commission</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.commission" title="Link to this definition">#</a></dt>
-<dd><p>Тип расчета комиссии (Commission.balance | Commission.payment)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.error">
-<span class="sig-name descname"><span class="pre">error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.error" title="Link to this definition">#</a></dt>
-<dd><p>Обработка ошибок</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.get">
-<span class="sig-name descname"><span class="pre">get</span></span><a class="headerlink" href="#aiopayAPI.payok.PayOk.get" title="Link to this definition">#</a></dt>
-<dd><p>Функция для получения возможных данных (баланс, выплаты)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.id">
-<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.id" title="Link to this definition">#</a></dt>
-<dd><p>ID вашего ключа API</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.json">
-<span class="sig-name descname"><span class="pre">json</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.json" title="Link to this definition">#</a></dt>
-<dd><p>JSON файл для записи ответов</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.key">
-<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.key" title="Link to this definition">#</a></dt>
-<dd><p>Ваш ключ API</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.method">
-<span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.method" title="Link to this definition">#</a></dt>
-<dd><p>Специальное значение метода выплаты, (default=Method.card)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.offset">
-<span class="sig-name descname"><span class="pre">offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.offset" title="Link to this definition">#</a></dt>
-<dd><p>Отступ, пропуск указанного количества строк</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.payment">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">payment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#aiopayAPI.payok.PayOk.payment" title="Link to this definition">#</a></dt>
-<dd><p>Создание выплат (перевод)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Параметры<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>API_ID</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, обязательно) – ID вашего ключа API</p></li>
-<li><p><strong>API_KEY</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, обязательно) – Ваш ключ API</p></li>
-<li><p><strong>shop</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, обязательно) – ID магазина</p></li>
-<li><p><strong>amount</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code>, обязательно) – Сумма выплаты</p></li>
-<li><p><strong>method</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Method</span></code>, обязательно) – Специальное значение метода выплаты, (default=Method.card)</p></li>
-<li><p><strong>reciever</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, обязательно) – Реквизиты получателя выплаты</p></li>
-<li><p><strong>sbp_bank</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – Банк для выплаты по СБП</p></li>
-<li><p><strong>commission_type</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – Тип расчета комиссии (Commission.balance | Commission.payment)</p></li>
-<li><p><strong>url</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – URL для отправки Webhook при смене статуса выплаты</p></li>
-<li><p><strong>json_file</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, опционально) – JSON файл для записи ответов</p></li>
-<li><p><strong>processing_error</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, опционально) – Обработка ошибок (boolean, default=False)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Результат<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> с данными</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.payment_id">
-<span class="sig-name descname"><span class="pre">payment_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.payment_id" title="Link to this definition">#</a></dt>
-<dd><p>ID платежа в вашей системе</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.payout_id">
-<span class="sig-name descname"><span class="pre">payout_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.payout_id" title="Link to this definition">#</a></dt>
-<dd><p>ID выплаты в системе Payok</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.receiver">
-<span class="sig-name descname"><span class="pre">receiver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.receiver" title="Link to this definition">#</a></dt>
-<dd><p>Реквизиты получателя выплаты</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.sbp">
-<span class="sig-name descname"><span class="pre">sbp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.sbp" title="Link to this definition">#</a></dt>
-<dd><p>Банк для выплаты по СБП</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.shop">
-<span class="sig-name descname"><span class="pre">shop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.shop" title="Link to this definition">#</a></dt>
-<dd><p>ID магазина</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.payok.PayOk.url">
-<span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.payok.PayOk.url" title="Link to this definition">#</a></dt>
-<dd><p>URL для отправки Webhook при смене статуса выплаты</p>
 </dd></dl>
 
 </dd></dl>
@@ -441,28 +441,28 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Основной класс для работы</a><ul>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk"><code class="docutils literal notranslate"><span class="pre">PayOk</span></code></a><ul>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.id"><code class="docutils literal notranslate"><span class="pre">PayOk.id</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.key"><code class="docutils literal notranslate"><span class="pre">PayOk.key</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.shop"><code class="docutils literal notranslate"><span class="pre">PayOk.shop</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.amount"><code class="docutils literal notranslate"><span class="pre">PayOk.amount</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.receiver"><code class="docutils literal notranslate"><span class="pre">PayOk.receiver</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.sbp"><code class="docutils literal notranslate"><span class="pre">PayOk.sbp</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.commission"><code class="docutils literal notranslate"><span class="pre">PayOk.commission</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.url"><code class="docutils literal notranslate"><span class="pre">PayOk.url</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.payout_id"><code class="docutils literal notranslate"><span class="pre">PayOk.payout_id</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.offset"><code class="docutils literal notranslate"><span class="pre">PayOk.offset</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.method"><code class="docutils literal notranslate"><span class="pre">PayOk.method</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.payment_id"><code class="docutils literal notranslate"><span class="pre">PayOk.payment_id</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.json"><code class="docutils literal notranslate"><span class="pre">PayOk.json</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.error"><code class="docutils literal notranslate"><span class="pre">PayOk.error</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.get"><code class="docutils literal notranslate"><span class="pre">PayOk.get</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.payment"><code class="docutils literal notranslate"><span class="pre">PayOk.payment()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#aiopayAPI.payok.GetAll"><code class="docutils literal notranslate"><span class="pre">GetAll</span></code></a><ul>
 <li><a class="reference internal" href="#aiopayAPI.payok.GetAll.balance"><code class="docutils literal notranslate"><span class="pre">GetAll.balance()</span></code></a></li>
 <li><a class="reference internal" href="#aiopayAPI.payok.GetAll.payout"><code class="docutils literal notranslate"><span class="pre">GetAll.payout()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk"><code class="docutils literal notranslate"><span class="pre">PayOk</span></code></a><ul>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.amount"><code class="docutils literal notranslate"><span class="pre">PayOk.amount</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.commission"><code class="docutils literal notranslate"><span class="pre">PayOk.commission</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.error"><code class="docutils literal notranslate"><span class="pre">PayOk.error</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.get"><code class="docutils literal notranslate"><span class="pre">PayOk.get</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.id"><code class="docutils literal notranslate"><span class="pre">PayOk.id</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.json"><code class="docutils literal notranslate"><span class="pre">PayOk.json</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.key"><code class="docutils literal notranslate"><span class="pre">PayOk.key</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.method"><code class="docutils literal notranslate"><span class="pre">PayOk.method</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.offset"><code class="docutils literal notranslate"><span class="pre">PayOk.offset</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.payment"><code class="docutils literal notranslate"><span class="pre">PayOk.payment()</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.payment_id"><code class="docutils literal notranslate"><span class="pre">PayOk.payment_id</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.payout_id"><code class="docutils literal notranslate"><span class="pre">PayOk.payout_id</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.receiver"><code class="docutils literal notranslate"><span class="pre">PayOk.receiver</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.sbp"><code class="docutils literal notranslate"><span class="pre">PayOk.sbp</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.shop"><code class="docutils literal notranslate"><span class="pre">PayOk.shop</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.payok.PayOk.url"><code class="docutils literal notranslate"><span class="pre">PayOk.url</span></code></a></li>
 </ul>
 </li>
 </ul>

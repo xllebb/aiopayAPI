@@ -230,15 +230,15 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.currency">
-<span class="sig-name descname"><span class="pre">currency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.currency" title="Link to this definition">#</a></dt>
-<dd><p>Валюта платежа (RUB, USD и т.д.)</p>
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.payment">
+<span class="sig-name descname"><span class="pre">payment</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.payment" title="Link to this definition">#</a></dt>
+<dd><p>ID платежа в вашей системе</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.custom">
-<span class="sig-name descname"><span class="pre">custom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.custom" title="Link to this definition">#</a></dt>
-<dd><p>Ваш параметр, что вы хотите передать в уведомлении</p>
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.shop">
+<span class="sig-name descname"><span class="pre">shop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.shop" title="Link to this definition">#</a></dt>
+<dd><p>ID магазина</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -248,15 +248,63 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.currency">
+<span class="sig-name descname"><span class="pre">currency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.currency" title="Link to this definition">#</a></dt>
+<dd><p>Валюта платежа (RUB, USD и т.д.)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.secret">
+<span class="sig-name descname"><span class="pre">secret</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.secret" title="Link to this definition">#</a></dt>
+<dd><p>Секретный ключ</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.email">
 <span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.email" title="Link to this definition">#</a></dt>
 <dd><p>E-mail получателя</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.success_url" title="Link to this definition">#</a></dt>
+<dd><p>URL для отправки Webhook при смене статуса выплаты</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.method">
+<span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Method.card</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.method" title="Link to this definition">#</a></dt>
+<dd><p>Специальное значение метода выплаты, (default=Method.card)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.lang" title="Link to this definition">#</a></dt>
+<dd><p>Язык выплаты</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.custom">
+<span class="sig-name descname"><span class="pre">custom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.custom" title="Link to this definition">#</a></dt>
+<dd><p>Ваш параметр, что вы хотите передать в уведомлении</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.json">
+<span class="sig-name descname"><span class="pre">json</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.json" title="Link to this definition">#</a></dt>
+<dd><p>Файл для записи ответов</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.error">
 <span class="sig-name descname"><span class="pre">error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.error" title="Link to this definition">#</a></dt>
 <dd><p>Обработка ошибок</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.link">
+<span class="sig-name descname"><span class="pre">link</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.link" title="Link to this definition">#</a></dt>
+<dd><p>Генерация сылка для оплаты (переменная)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -289,54 +337,6 @@
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> с данными транзакции</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.json">
-<span class="sig-name descname"><span class="pre">json</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.json" title="Link to this definition">#</a></dt>
-<dd><p>Файл для записи ответов</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.lang">
-<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.lang" title="Link to this definition">#</a></dt>
-<dd><p>Язык выплаты</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.link">
-<span class="sig-name descname"><span class="pre">link</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.link" title="Link to this definition">#</a></dt>
-<dd><p>Генерация сылка для оплаты (переменная)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.method">
-<span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Method.card</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.method" title="Link to this definition">#</a></dt>
-<dd><p>Специальное значение метода выплаты, (default=Method.card)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.payment">
-<span class="sig-name descname"><span class="pre">payment</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.payment" title="Link to this definition">#</a></dt>
-<dd><p>ID платежа в вашей системе</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.secret">
-<span class="sig-name descname"><span class="pre">secret</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.secret" title="Link to this definition">#</a></dt>
-<dd><p>Секретный ключ</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.shop">
-<span class="sig-name descname"><span class="pre">shop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.shop" title="Link to this definition">#</a></dt>
-<dd><p>ID магазина</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="aiopayAPI.quick.QuickPay.success_url">
-<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#aiopayAPI.quick.QuickPay.success_url" title="Link to this definition">#</a></dt>
-<dd><p>URL для отправки Webhook при смене статуса выплаты</p>
 </dd></dl>
 
 </dd></dl>
@@ -401,21 +401,21 @@
 <li><a class="reference internal" href="#">Платежи</a><ul>
 <li><a class="reference internal" href="#aiopayAPI.quick.QuickPay"><code class="docutils literal notranslate"><span class="pre">QuickPay</span></code></a><ul>
 <li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.amount"><code class="docutils literal notranslate"><span class="pre">QuickPay.amount</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.currency"><code class="docutils literal notranslate"><span class="pre">QuickPay.currency</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.custom"><code class="docutils literal notranslate"><span class="pre">QuickPay.custom</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.payment"><code class="docutils literal notranslate"><span class="pre">QuickPay.payment</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.shop"><code class="docutils literal notranslate"><span class="pre">QuickPay.shop</span></code></a></li>
 <li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.desc"><code class="docutils literal notranslate"><span class="pre">QuickPay.desc</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.currency"><code class="docutils literal notranslate"><span class="pre">QuickPay.currency</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.secret"><code class="docutils literal notranslate"><span class="pre">QuickPay.secret</span></code></a></li>
 <li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.email"><code class="docutils literal notranslate"><span class="pre">QuickPay.email</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.success_url"><code class="docutils literal notranslate"><span class="pre">QuickPay.success_url</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.method"><code class="docutils literal notranslate"><span class="pre">QuickPay.method</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.lang"><code class="docutils literal notranslate"><span class="pre">QuickPay.lang</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.custom"><code class="docutils literal notranslate"><span class="pre">QuickPay.custom</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.json"><code class="docutils literal notranslate"><span class="pre">QuickPay.json</span></code></a></li>
 <li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.error"><code class="docutils literal notranslate"><span class="pre">QuickPay.error</span></code></a></li>
+<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.link"><code class="docutils literal notranslate"><span class="pre">QuickPay.link</span></code></a></li>
 <li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.generate_paylink"><code class="docutils literal notranslate"><span class="pre">QuickPay.generate_paylink()</span></code></a></li>
 <li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.get_transaction"><code class="docutils literal notranslate"><span class="pre">QuickPay.get_transaction()</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.json"><code class="docutils literal notranslate"><span class="pre">QuickPay.json</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.lang"><code class="docutils literal notranslate"><span class="pre">QuickPay.lang</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.link"><code class="docutils literal notranslate"><span class="pre">QuickPay.link</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.method"><code class="docutils literal notranslate"><span class="pre">QuickPay.method</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.payment"><code class="docutils literal notranslate"><span class="pre">QuickPay.payment</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.secret"><code class="docutils literal notranslate"><span class="pre">QuickPay.secret</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.shop"><code class="docutils literal notranslate"><span class="pre">QuickPay.shop</span></code></a></li>
-<li><a class="reference internal" href="#aiopayAPI.quick.QuickPay.success_url"><code class="docutils literal notranslate"><span class="pre">QuickPay.success_url</span></code></a></li>
 </ul>
 </li>
 </ul>
