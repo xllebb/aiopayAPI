@@ -16,7 +16,7 @@ python:
 
 # Настройки сборки документации
 sphinx:
-  configuration: docs/conf.py
+  configuration: test_docs/source/conf.py
   
 
 # Стадии сборки
