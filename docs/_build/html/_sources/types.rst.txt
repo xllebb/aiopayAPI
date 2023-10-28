@@ -3,5 +3,6 @@
 ==============
 В данном модуле есть все возможные методы оплаты
 
+
 .. automodule:: aiopayAPI.types.methods
     :members:

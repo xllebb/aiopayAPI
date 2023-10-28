@@ -6,6 +6,7 @@ import aiohttp
 from .utils import Checker
 from .types import Method
 
+
  
 class QuickPay:
     """Класс для создание оплаты в PayOk
@@ -63,6 +64,51 @@ class QuickPay:
                  json_file: str | None = None, processing_error: bool = False) -> None:
         """
         Инициализация класса Quickpay
+
+        :param amount: Сумма оплаты
+        :type amount: :obj:`float`
+
+        :param payment: ID платежа в вашей системе
+        :type payment: :obj:`str`, опционально
+
+        :param shop: ID магазина
+        :type shop: :obj:`int`
+
+        :param desc: Описание платежа
+        :type desc: :obj:`str`
+
+        :param currency: Валюта платежа
+        :type currency: :obj:`str`
+
+        :param secret: Секретный ключ
+        :type secret: :obj:`str`
+
+        :param email: E-mail получателя
+        :type email: :obj:`str`, опционально
+
+        :param success_url: URL для отправки Webhook при смене статуса выплаты
+        :type success_url: :obj:`str`, опционально
+
+        :param method: Специальное значение метода выплаты, (default=Method.card)
+        :type method: :obj:`Method`, опционально
+
+        :param lang: Язык выплаты
+        :type lang: :obj:`str`, опционально
+
+        :param custom: Ваш параметр, который вы хотите передать в уведомлении
+        :type custom: :obj:`str`, опционально
+
+        :param API_ID: ID ключа (нужен ТОЛЬКО для получения транзакций)
+        :type API_ID: :obj:`int`, опционально
+
+        :param API_KEY: API Ключ (нужен ТОЛЬКО для получения транзакции)
+        :type API_KEY: :obj:`str`, опционально
+
+        :param json_file: JSON файл для записи ответов
+        :type json_file: :obj:`str`, опционально
+
+        :param processing_error: Обработка ошибок (boolean, default=False)
+        :type processing_error: :obj:`bool`, опционально
         """
         self.amount: float = amount
         """Сумма оплаты"""
