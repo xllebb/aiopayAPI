@@ -3,7 +3,7 @@ from .urls import URL
 from .types import Method
 import json
 from .utils import Checker
-from typing import Dict, Optional
+from typing import Dict, Union
 from .types.commisions import Commission
 
 
@@ -56,11 +56,11 @@ class PayOk:
     :type processing_error: :obj:`bool`
     """
     def __init__(self, API_ID: int, API_KEY: str,
-                shop: int, payment: Optional[str] = None, payout_id: Optional[int] = None,
-                offset: int = 0, amount: Optional[float] = None, method: Method | None = None,
-                receiver: Optional[str] = None, sbp_bank: Optional[str]  = None, 
-                commission_type: str = Commission.balance, url: Optional[str] = None,
-                json_file: Optional[str] =  None, processing_error: bool = False):
+                shop: int, payment: Union[str, None] = None, payout_id: Union[int, None] = None,
+                offset: int = 0, amount: Union[float, None] = None, method: Method | None = None,
+                receiver: Union[str, None] = None, sbp_bank: Union[str, None] = None, 
+                commission_type: str = Commission.balance, url: Union[str, None] = None,
+                json_file: Union[str, None] =  None, processing_error: bool = False):
         """
         Инициализация класса PayOk
 
@@ -149,7 +149,8 @@ class PayOk:
         """Обработка ошибок"""
 
         self.get: function = GetAll(self)
-        """Функция для получения возможных данных (баланс, выплаты)"""
+        """Функция для получения возможных данных (баланс, выплаты)
+        Отностится к классу GetAll"""
 
     async def payment(self) -> Dict:
         """
