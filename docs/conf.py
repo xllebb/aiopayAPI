@@ -10,7 +10,7 @@
 project = 'aiopayAPI'
 copyright = '2023, xllebb'
 author = 'xllebb'
-release = '0.1.4.4'
+release = '0.1.4.5'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -27,6 +27,7 @@ language = 'ru'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'furo'
+html_logo = '_static/logo4.png'
 autodoc_member_order = 'bysource'
 html_static_path = ['_static']
 
