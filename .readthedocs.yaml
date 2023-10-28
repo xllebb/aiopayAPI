@@ -8,8 +8,9 @@ build:
     python: "3.8"
 
 # Установка среды выполнения
-install:
-  - requirements: docs/requirements.txt
+python:
+  install:
+    - requirements: docs/requirements.txt
 
 # Настройки сборки документации
 sphinx:
