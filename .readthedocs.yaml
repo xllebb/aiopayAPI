@@ -15,13 +15,6 @@ python:
 # Настройки сборки документации
 sphinx:
   configuration: docs/conf.py
-  fail_on_warning: true
-  fail_on_error: true
-  output:
-    directory: docs/_build/html
-  requirements_file: docs/requirements.txt
-  parallel_build:
-    - -j4
+  
 
 # Стадии сборки
-formats: all
