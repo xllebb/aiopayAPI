@@ -3,13 +3,14 @@ from .urls import URL
 from .types import Method
 import json
 from .utils import Checker
+from pydantic import BaseModel
 from typing import Dict, Union
 from .types.commisions import Commission
 
 
 
 
-class PayOk:
+class PayOk(BaseModel):
     """
     Класс для работы с сайтом PayOk
 
@@ -125,7 +126,7 @@ class PayOk:
         """Банк для выплаты по СБП"""
 
         self.commission: str | None = commission_type
-        """Тип расчета комиссии (Commission.balance | Commission.payment)"""
+        """Тип расчета комиссии (Commission)"""
 
         self.url: str | None = url
         """URL для отправки Webhook при смене статуса выплаты"""
@@ -137,7 +138,7 @@ class PayOk:
         """Отступ, пропуск указанного количества строк"""
 
         self.method: str | None = method
-        """Специальное значение метода выплаты, (default=Method.card)"""
+        """Специальное значение метода выплаты, (Method)"""
 
         self.payment_id: int | None = payment
         """ID платежа в вашей системе"""
@@ -148,10 +149,10 @@ class PayOk:
         self.error: bool | None = processing_error
         """Обработка ошибок"""
 
-        self.get: function = GetAll(self)
+        self.get: GetAll = GetAll(self)
         """Функция для получения возможных данных (баланс, выплаты)
         Отностится к классу GetAll"""
-
+        
     async def payment(self) -> Dict:
         """
         Создание выплат (перевод)\n
@@ -192,7 +193,10 @@ class PayOk:
 
         :return: :obj:`dict` с данными 
         """
-        Checker().check_params(amount=self.amount, method=self.method, reciever=self.receiver, commission=self.commission)
+        Checker().check_params(amount=self.amount, 
+                           method=self.method, 
+                           reciever=self.receiver, 
+                           commission=self.commission)
         data = {
             "API_ID": self.id,
             "API_KEY": self.key,
@@ -200,29 +204,23 @@ class PayOk:
             "method": self.method,
             "reciever": self.receiver
         }
-        if self.sbp:
-            data.update({"sbp_bank": self.sbp})
-
-        if self.commission:
-            data.update({"comission_type": self.commission})
-
-        if self.url:
-            data.update({"webhook_url": self.url})
-
+        data.update({"sbp_bank": self.sbp}) if self.sbp else None
+        data.update({"comission_type": self.commission}) if self.commission else None
+        data.update({"webhook_url": self.url}) if self.url else None
         async with aiohttp.ClientSession() as session:
-            async with session.post(URL.create,
-                                    data=data) as resp:
+            async with session.post(URL.create, data=data) as resp:
                 if resp.status == 200:
                     text = await resp.text()
                     if self.json:
                         with open(self.json, "a", encoding='utf-8') as file:
-                            json.dump(json.loads(text), file, indent=4, ensure_ascii=False)
-                    if self.error is True:
+                            json.dump(json.loads(text), file, 
+                                    indent=4, ensure_ascii=False)
+                    if self.error:
                         Checker().status(json.loads(text))
                     return json.loads(text)
                 else:
                     return {}
-                
+                    
 
 class GetAll:
     """
@@ -252,19 +250,17 @@ class GetAll:
             "shop": self.pay.shop
         }
         async with aiohttp.ClientSession() as session:
-            async with session.post(URL.balance,
-                                    data=data) as resp:
-                if resp.status == 200:
-                    text = await resp.text(encoding="utf-8")
-                    json_resp = json.loads(text)
-                    if self.pay.json:
-                        with open(self.pay.json, 'a', encoding='utf-8') as file:
-                            json.dump(json.loads(text), file, indent=4, ensure_ascii=False)
-                    if self.pay.error is True:
-                        Checker().status(json_resp)
-                    return json_resp
-                else:
+            async with session.post(URL.balance, data=data) as resp:
+                if resp.status != 200:
                     return {}
+                text = await resp.text(encoding="utf-8")
+                json_resp = json.loads(text)
+                if self.pay.json:
+                    with open(self.pay.json, 'a', encoding='utf-8') as file:
+                        json.dump(json_resp, file, indent=4, ensure_ascii=False)
+                if self.pay.error:
+                    Checker().status(json_resp)
+                return json_resp
                 
     async def payout(self) -> dict:
         """
@@ -285,27 +281,25 @@ class GetAll:
         :return: :obj:`dict` объект с данными выплат
         """
         data = {
-            "API_ID": self.pay.id,
-            "API_KEY": self.pay.key
+        "API_ID": self.id,
+        "API_KEY": self.key
         }
-        if self.pay.payout_id:
-            data.update({"payout_id": self.pay.payout_id})
-        if self.pay.offset:
-            data.update({"offset": self.pay.offset})
+        if self.payout_id:
+            data["payout_id"] = self.payout_id
+        if self.offset:
+            data["offset"] = self.offset
         async with aiohttp.ClientSession() as session:
-            async with session.post(URL.payout, 
-                                    data=data) as resp:
+            async with session.post(URL.payout, data=data) as resp:
                 if resp.status == 200:
                     text = await resp.text()
-                    if self.pay.json:
-                        with open(self.pay.json, 'a', encoding='utf-8') as file:
-                            json.dump(json.loads(text), file, indent=4, ensure_ascii=False)
-                    if self.pay.error is True:
+                    if self.json:
+                        with open(self.json, 'a', encoding='utf-8') as file:
+                            json.dump(json.loads(text), file, 
+                                    indent=4, ensure_ascii=False)
+                    if self.error:
                         Checker().status(json.loads(text))
                     return json.loads(text)
-                else:
-                    return {}
-                
+                return {}
 
         
 
