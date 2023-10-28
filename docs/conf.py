@@ -16,8 +16,7 @@ release = '0.1.3.9'
 
 extensions = ['sphinx.ext.autodoc',
               'sphinx_design',
-              'sphinx_automagicdoc',
-              'aiopayAPI']
+              'sphinx_automagicdoc']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
