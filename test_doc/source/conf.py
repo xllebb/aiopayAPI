@@ -19,7 +19,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx_automagicdoc']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build']
+exclude_patterns = ['build']
 
 language = 'ru'
 
