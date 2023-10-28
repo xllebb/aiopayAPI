@@ -3,14 +3,13 @@ from .urls import URL
 from .types import Method
 import json
 from .utils import Checker
-from pydantic import BaseModel
 from typing import Dict, Union
 from .types.commisions import Commission
 
 
 
 
-class PayOk(BaseModel):
+class PayOk:
     """
     Класс для работы с сайтом PayOk
 
