@@ -58,7 +58,7 @@ class QuickPay:
     """
     def __init__(self, amount: float, shop: int, desc: str, currency: str, secret: str, 
                  email: str | None = None, payment: str | None = None,
-                 success_url: str | None = None, method: str | None = Method.card, 
+                 success_url: str | None = None, method: str | None = None, 
                  lang: str | None = None, custom: str | None = None,
                  API_ID: int | None = None, API_KEY: str | None = None, 
                  json_file: str | None = None, processing_error: bool = False) -> None:

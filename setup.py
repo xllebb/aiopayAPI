@@ -7,7 +7,7 @@ with open('README.md', encoding="utf-8") as f:
 
 setup(
   name='aiopayAPI',
-  version='0.1.4.1',
+  version='0.1.4.2',
   author='xllebb',
   author_email='090504opo@gmail.com',
   description='Асинхронный API для работы с платежной системой Payok.io.',

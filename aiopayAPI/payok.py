@@ -56,7 +56,7 @@ class PayOk:
     :type processing_error: :obj:`bool`
     """
     def __init__(self, API_ID: int, API_KEY: str,
-                shop: int, payment: str | int | None = None, payout_id: int | None = None,
+                shop: int, payment: str | None = None, payout_id: int | None = None,
                 offset: int = 0, amount: float | None = None, method: Method | None = None,
                 receiver: str | None = None, sbp_bank: str | None = None, 
                 commission_type: str = Commission.balance, url: str | None = None,
