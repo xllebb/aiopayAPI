@@ -49,6 +49,8 @@ GitHub: https://github.com/xllebbSQ/aiopayAPI
     quick.rst
     
     types.rst
+
+    new.rst
           
 
 
