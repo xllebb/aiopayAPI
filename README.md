@@ -16,7 +16,7 @@
 <h2 align="center">
   <a href="https://pypi.org/project/aiopayAPI/">PyPi</a>
   <br>
-  <a href="...">Документация</a>
+  <a href="https://aiopayapi.readthedocs.io/ru/latest/index.html">Документация</a>
   <br>
   <a href="">GitHub</a>
 </h2>

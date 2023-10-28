@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: aiopayAPI
-Version: 0.1.3.9
+Version: 0.1.4
 Summary: Асинхронный API для работы с платежной системой Payok.io.
 Home-page: https://github.com/xllebbSQ/aiopayAPI
 Author: xllebb
@@ -34,7 +34,7 @@ License-File: LICENSE
 <h2 align="center">
   <a href="https://pypi.org/project/aiopayAPI/">PyPi</a>
   <br>
-  <a href="...">Документация</a>
+  <a href="https://aiopayapi.readthedocs.io/ru/latest/index.html">Документация</a>
   <br>
   <a href="">GitHub</a>
 </h2>
