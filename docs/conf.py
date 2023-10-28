@@ -11,11 +11,12 @@ project = 'aiopayAPI'
 copyright = '2023, xllebb'
 author = 'xllebb'
 release = '0.1.3.9'
-
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx_design',
+              'sphinx_automagicdoc']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
