@@ -4,7 +4,7 @@ import time
 
 class Checker:
     """Проверка данных"""
-    def __init__(self, **params: None) -> None:
+    def __init__(self, **params: dict | None) -> None:
         self.params = params
 
 
