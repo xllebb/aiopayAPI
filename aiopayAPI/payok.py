@@ -59,7 +59,7 @@ class PayOk:
                 shop: int, payment: Union[str, None] = None, payout_id: Union[int, None] = None,
                 offset: int = 0, amount: Union[float, None] = None, method: Method | None = None,
                 receiver: Union[str, None] = None, sbp_bank: Union[str, None] = None, 
-                commission_type: str = Commission.balance, url: Union[str, None] = None,
+                commission_type: str = Commission, url: Union[str, None] = None,
                 json_file: Union[str, None] =  None, processing_error: bool = False):
         """
         Инициализация класса PayOk
