@@ -1,5 +1,5 @@
 import hashlib
-from typing import Dict
+from typing import Dict, Optional
 import json
 from .urls import URL
 import aiohttp
@@ -57,11 +57,11 @@ class QuickPay:
     :type processing_error: :obj:`bool`, опционально
     """
     def __init__(self, amount: float, shop: int, desc: str, currency: str, secret: str, 
-                 email: str | None = None, payment: str | None = None,
-                 success_url: str | None = None, method: str | None = None, 
-                 lang: str | None = None, custom: str | None = None,
-                 API_ID: int | None = None, API_KEY: str | None = None, 
-                 json_file: str | None = None, processing_error: bool = False) -> None:
+                 email: Optional[str] = None, payment: Optional[str] = None,
+                 success_url: Optional[str] = None, method: Optional[str] = None, 
+                 lang: Optional[str] = None, custom: Optional[str] = None,
+                 API_ID: Optional[int] = None, API_KEY: Optional[str] = None, 
+                 json_file: Optional[str] = None, processing_error: bool = False) -> None:
         """
         Инициализация класса Quickpay
 

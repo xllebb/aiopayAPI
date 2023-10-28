@@ -10,7 +10,7 @@
 project = 'aiopayAPI'
 copyright = '2023, xllebb'
 author = 'xllebb'
-release = '0.1.4.2'
+release = '0.1.4.3'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
