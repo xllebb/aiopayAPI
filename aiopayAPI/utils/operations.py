@@ -22,10 +22,10 @@ class OperationInfo:
         self.status: int = data["1"]["transaction_status"]
         """Статус платежа"""
 
-        self.date: str = data.get("date")
+        self.date: str = data["1"]["date"]
         """Дата создания платежа"""
 
-        self.pay_date: str = data.get("pay_date")
+        self.pay_date: str = data["1"]["pay_date"]
         """Дата оплаты"""
 
         self.amount: float = data["1"]["amount"]

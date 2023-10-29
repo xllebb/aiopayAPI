@@ -18,7 +18,7 @@
             API_KEY="xxxxxxxxxxxxxxxxxx",  
             shop=2222
         )
-        balance = await pay.get_balance()
+        balance = await pay.get.balance()
         print(balance)
 
     if __name__ == "__main__":
@@ -37,7 +37,7 @@
         quick = PayOk(
             amount=20.5, # Сумма 
             currency="RUB",
-            payment=123456 # Номер заказа, уникальный в вашей системе,
+            payment=123456 # Номер заказа, уникальный в вашей системе (необязательно)
             desc="Description", # Описание платежа
             shop=2222 # ID вашего магазина
         )
@@ -104,4 +104,8 @@
 
     if __name__ == "__main__":
         asyncio.run(main())
+
+
+
+Если вам не понятны данные примеры, вы можете посмотреть более подробные примеры на GitHub
 

@@ -6,7 +6,7 @@
 <link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Платежи" href="quick.html" /><link rel="prev" title="Примеры" href="examples.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
-        <title>Основной класс для работы - документация aiopayAPI 0.1.4.5</title>
+        <title>Основной класс для работы - документация aiopayAPI 0.1.4.7</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">документация aiopayAPI 0.1.4.5</div></a>
+      <a href="index.html"><div class="brand">документация aiopayAPI 0.1.4.7</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -150,7 +150,7 @@
     <img class="sidebar-logo" src="_static/logo4.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">документация aiopayAPI 0.1.4.5</span>
+  <span class="sidebar-brand-text">документация aiopayAPI 0.1.4.7</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Поиск" name="q" aria-label="Поиск">
@@ -163,7 +163,8 @@
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Примеры</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Основной класс для работы</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick.html">Платежи</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">Типы оплаты, комиссии и т.д.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Методы оплаты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html#module-aiopayAPI.types.commisions">Комиссия</a></li>
 <li class="toctree-l1"><a class="reference internal" href="new.html">Что нового? v0.1.4.5</a></li>
 </ul>
 
@@ -199,9 +200,9 @@
           </label>
         </div>
         <article role="main">
-          <section id="id1">
-<h1>Основной класс для работы<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<dl class="py class" id="module-aiopayAPI.payok">
+          <section id="module-aiopayAPI.payok">
+<span id="id1"></span><h1>Основной класс для работы<a class="headerlink" href="#module-aiopayAPI.payok" title="Link to this heading">#</a></h1>
+<dl class="py class">
 <dt class="sig sig-object py" id="aiopayAPI.payok.PayOk">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aiopayAPI.payok.</span></span><span class="sig-name descname"><span class="pre">PayOk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_ID:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">API_KEY:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shop:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payment:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payout_id:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method:</span> <span class="pre">~aiopayAPI.types.methods.Method</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiver:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_bank:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commission_type:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'aiopayAPI.types.commisions.Commission'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_file:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processing_error:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#aiopayAPI.payok.PayOk" title="Link to this definition">#</a></dt>
 <dd><p>Класс для работы с сайтом PayOk</p>
@@ -489,7 +490,7 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=eda6295c"></script>
+</div><script src="_static/documentation_options.js?v=7e26272f"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=32e29ea5"></script>

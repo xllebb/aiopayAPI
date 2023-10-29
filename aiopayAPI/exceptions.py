@@ -11,10 +11,12 @@ class ValuesNotFound(Exception):
         return f"{self.message}"
     
 
-class IPError(Exception):
-    """Ошибка возникающая когда IP адрес не добавлен в список разрешенных IP адресов"""
+class ResponseError(Exception):
+    """Ошибка при обработке запроса"""
+    def __init__(self, code: int) -> None:
+        self.code = code
     def __str__(self) -> str:
-        return "IP с которого вы пытаететь авторизоваться не добавлен в список разрешенных IP адресов."
+        return "Произошла ошибка при обработке запроса, код сайта: {}".format(self.code)
     
 class Error(Exception):
     """Обработка всех ошибок + их код"""
@@ -24,6 +26,8 @@ class Error(Exception):
         
     def __str__(self) -> str:
         return f"{self.message} (Код ошибки: {self.code})"
+    
+
     
 
 

@@ -2,6 +2,7 @@ import aiohttp
 from .urls import URL
 from .types import Method
 import json
+from .exceptions import ResponseError
 from .utils import Checker
 from typing import Dict, Union
 from .types.commisions import Commission
@@ -34,7 +35,7 @@ class PayOk:
     :param amount: Сумма выплаты
     :type amount: :obj:`float`
 
-    :param method: Специальное значение метода выплаты, (default=Method.card)
+    :param method: Специальное значение метода выплаты, (Method)
     :type method: :obj:`Method`
 
     :param receiver: Реквизиты получателя выплаты
@@ -43,7 +44,7 @@ class PayOk:
     :param sbp_bank: Банк для выплаты по СБП
     :type sbp_bank: :obj:`str`
 
-    :param commission_type: Тип расчета комиссии (Commission.balance | Commission.payment)
+    :param commission_type: Тип расчета комиссии (Commission)
     :type commission_type: :obj:`str`
 
     :param url: URL для отправки Webhook при смене статуса выплаты
@@ -85,7 +86,7 @@ class PayOk:
         :param amount: Сумма выплаты
         :type amount: :obj:`float`
 
-        :param method: Специальное значение метода выплаты, (default=Method.card)
+        :param method: Специальное значение метода выплаты, (Method.card)
         :type method: :obj:`Method`
 
         :param receiver: Реквизиты получателя выплаты
@@ -94,7 +95,7 @@ class PayOk:
         :param sbp_bank: Банк для выплаты по СБП
         :type sbp_bank: :obj:`str`
 
-        :param commission_type: Тип расчета комиссии (Commission.balance | Commission.payment)
+        :param commission_type: Тип расчета комиссии (Commission)
         :type commission_type: :obj:`str`
 
         :param url: URL для отправки Webhook при смене статуса выплаты
@@ -106,7 +107,7 @@ class PayOk:
         :param processing_error: Обработка ошибок (boolean, default=False)
         :type processing_error: :obj:`bool`
         """
-        self.id: int = API_ID
+        self.api_id: int = API_ID
         """ID вашего ключа API"""
 
         self.key: str = API_KEY
@@ -137,7 +138,7 @@ class PayOk:
         """Отступ, пропуск указанного количества строк"""
 
         self.method: str | None = method
-        """Специальное значение метода выплаты, (Method)"""
+        """Специальное значение метода выплаты (Method)"""
 
         self.payment_id: int | None = payment
         """ID платежа в вашей системе"""
@@ -197,7 +198,7 @@ class PayOk:
                            reciever=self.receiver, 
                            commission=self.commission)
         data = {
-            "API_ID": self.id,
+            "API_ID": self.api_id,
             "API_KEY": self.key,
             "amount": self.amount,
             "method": self.method,
@@ -218,40 +219,46 @@ class PayOk:
                         Checker().status(json.loads(text))
                     return json.loads(text)
                 else:
-                    return {}
+                    raise ResponseError(resp.status)
                     
 
 class GetAll:
     """
-    Класс для получения данных
+    Класс созданный для получения различных данных
+
+    баланс, транзакции, выплаты и т.п.
+
+    :param payok: Класс PayOk
+    :type payok: :obj:`PayOk`
     """
     def __init__(self, payok: PayOk) -> None:
-        self.pay = payok
 
-    async def balance(self) -> dict:
+        self.pay = payok
+        """Класс PayOk"""
+
+    async def balance(self) -> Dict:
         """
         Получение баланса
 
-        :param shop: ID магазина
-        :type shop: :obj:`int`, обязательно
+        :param API_ID: ID вашего ключа API
+        :type API_ID: :obj:`int`, обязательно
+
+        :param API_KEY: Ваш ключ API
+        :type API_KEY: :obj:`str`, обязательно
 
         :param payment: ID платежа
         :type payment: :obj:`int`, опционально
-
-        :param shop: ID магазина
-        :type shop: :obj:`int`, обязательно
         
         :return: :obj:`dict` с данными баланса
         """
         data = {
-            "API_ID": self.pay.id,
-            "API_KEY": self.pay.key,
-            "shop": self.pay.shop
+            "API_ID": self.pay.api_id,
+            "API_KEY": self.pay.key
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(URL.balance, data=data) as resp:
                 if resp.status != 200:
-                    return {}
+                    raise ResponseError(resp.status)
                 text = await resp.text(encoding="utf-8")
                 json_resp = json.loads(text)
                 if self.pay.json:
@@ -261,7 +268,7 @@ class GetAll:
                     Checker().status(json_resp)
                 return json_resp
                 
-    async def payout(self) -> dict:
+    async def payout(self) -> Dict:
         """
         Получение выплат (макс. 100)
 
@@ -280,25 +287,26 @@ class GetAll:
         :return: :obj:`dict` объект с данными выплат
         """
         data = {
-        "API_ID": self.id,
-        "API_KEY": self.key
+        "API_ID": self.pay.api_id,
+        "API_KEY": self.pay.key
         }
-        if self.payout_id:
-            data["payout_id"] = self.payout_id
-        if self.offset:
+        if self.pay.payout_id:
+            data["payout_id"] = self.pay.payout_id
+        if self.pay.offset:
             data["offset"] = self.offset
         async with aiohttp.ClientSession() as session:
             async with session.post(URL.payout, data=data) as resp:
                 if resp.status == 200:
                     text = await resp.text()
-                    if self.json:
-                        with open(self.json, 'a', encoding='utf-8') as file:
+                    if self.pay.json:
+                        with open(self.pay.json, 'a', encoding='utf-8') as file:
                             json.dump(json.loads(text), file, 
                                     indent=4, ensure_ascii=False)
-                    if self.error:
+                    if self.pay.error:
                         Checker().status(json.loads(text))
                     return json.loads(text)
-                return {}
+                else:
+                    raise ResponseError(resp.status)
 
         
 

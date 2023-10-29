@@ -7,7 +7,7 @@ with open('README.md', encoding="utf-8") as f:
 
 setup(
   name='aiopayAPI',
-  version='0.1.4.6',
+  version='0.1.4.7',
   author='xllebb',
   author_email='090504opo@gmail.com',
   description='Асинхронный API для работы с платежной системой Payok.io.',
@@ -17,8 +17,7 @@ setup(
   packages=find_packages(),
   install_requires=['aiohttp>=3.8.5',
                     "asyncio>=3.4.3",
-                    "typing>=3.7.4",
-                    "pydantic>=1.8.2"],
+                    "typing>=3.7.4"],
   classifiers=[
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
