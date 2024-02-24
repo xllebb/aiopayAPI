@@ -8,8 +8,8 @@
 <h2 align="center"> Асинхронное API для работы с сайтом Payok.io</h2></h1>
 
 
-![Static Badge](https://img.shields.io/badge/author-xllebbSQ-blue) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/aiopayAPI) ![PyPI - Downloads](https://img.shields.io/pypi/dm/aiopayAPI) 
-![PyPI - License](https://img.shields.io/pypi/l/aiopayAPI)
+![Static Badge](https://img.shields.io/badge/author-xllebbSQ-blue) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/aiopayAPI) ![PyPI - Downloads](https://img.shields.io/pypi/dm/aiopayAPI) [![Downloads](https://static.pepy.tech/badge/aiopayAPI)](https://pepy.tech/project/aiopayAPI)
+![PyPI - License](https://img.shields.io/pypi/l/aiopayAPI) 
 -------------------------------
 
 <h1 align="center">Важные ссылки</h1>
@@ -21,20 +21,17 @@
   <a href="">GitHub</a>
 </h2>
 
+------
+## Описание проекта
+`aiopayAPI` - асинхронная библиотека, создана на базе `aiohttp`, `asyncio`
 
-## Возможности
+
+
+----
+## Возможности 💪
 ---------------------------------
 - Получение баланса
 - Получение транзакций
 - Создание выплат (переводов)
-  - Методы выплат
 - Получение выплат
 - Создание ссылки для оплаты
-- Асинхронность
-
-
-
-
-
-
-
